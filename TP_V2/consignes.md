@@ -10,16 +10,15 @@ Votre objectif est de développer une API avec Flask qui permette de gérer une 
 2. Toutes les requêtes doivent pouvoir être effectuées depuis le frontend fourni (fichiers HTML et JavaScript).
 3. Vous devez autoriser toutes les applications à se connecter et permettre les méthodes **GET / POST / PUT / DELETE et OPTIONS**.
 
-
 ## Représentation d'une tâche en Base de données
-   
-   - "id_tache": chaine de caractères
-   - "nom": chaîne de caractères
-   - "description": chaîne de caractères
-   - "statut" : chaine de caractères, énumération entre TODO, DONE et IN_PROGRESS. Tout autre valeur doit amené un refus par Requête erronnée
-   - "priorite": nombre entier
-   - "utilisateur": chaîne de caractères
-   - "date_creation": chaine de caractères 
+
+- "id_tache": chaine de caractères
+- "nom": chaîne de caractères
+- "description": chaîne de caractères
+- "statut" : chaine de caractères, énumération entre TODO, DONE et IN_PROGRESS. Tout autre valeur doit amené un refus par Requête erronnée
+- "priorite": nombre entier
+- "utilisateur": chaîne de caractères
+- "date_creation": chaine de caractères
 
 ## Tâches à Implémenter
 
@@ -51,12 +50,12 @@ Pour chaque endpoint, vous devez vous baser sur les définitions fournies dans l
   - L'ID (`id_tache`) et la date de création (`date_creation`) doivent être gérés par le backend **et ne font jamais partie du payload de création**. Respectez bien la nomenclature
   - Une variable globale `next_id` est fournie pour gérer l'attribution des IDs. Pensez à utiliser le mot-clé `global` pour manipuler cette variable. Si vous préférez une autre solution, assurez vous simplement que la clé soit unique pour ne pas casser votre base. (uuid par exemple)
   - Vous pouvez générer la date de création avec datetime.now par exemple, nous ne travaillerons pas avec ce champ.
-- **Validation** : La validation des inputs doit être faite côté backend. Le modèle de données à suivre se situe dans le fichier "grand_dataset_taches.py" qui contient l'entièreté de la base. Vous devez donc avoir validé les champs suivants avant enregistrement dans la base de données: 
-   - "nom": chaîne de caractères
-   - "description": chaîne de caractères
-   - "statut" : chaine de caractères, énumération entre TODO, DONE et IN_PROGRESS. Tout autre valeur doit amené un refus par Requête erronnée
-   - "priorite": nombre entier
-   - "utilisateur": chaîne de caractères
+- **Validation** : La validation des inputs doit être faite côté backend. Le modèle de données à suivre se situe dans le fichier "grand_dataset_taches.py" qui contient l'entièreté de la base. Vous devez donc avoir validé les champs suivants avant enregistrement dans la base de données:
+  - "nom": chaîne de caractères
+  - "description": chaîne de caractères
+  - "statut" : chaine de caractères, énumération entre TODO, DONE et IN_PROGRESS. Tout autre valeur doit amené un refus par Requête erronnée
+  - "priorite": nombre entier
+  - "utilisateur": chaîne de caractères
 
 #### d. **Modifier une tâche existante** ()
 
@@ -77,7 +76,7 @@ Pour chaque endpoint, vous devez vous baser sur les définitions fournies dans l
   - **Exemple de retour** :
   ```json
   {
-    "En attente": 1002, 
+    "En attente": 1002,
     "En cours": 102,
     "Terminées": 1500
   }
@@ -107,3 +106,21 @@ Vous avez en revanche droit de consulter la doc Python, Flask, StackOverflow ...
 ### d. Architecture
 
 Nous avons vu quelques notions d'archtitecture de code, une partie de la note tiendra compte de son respect
+
+## Conseils pour la réalisation
+
+- Déclarez votre application, assurez vous qu'une route hello world est fonctionnelle
+- Ouvrez votre domaine au front avec les configurations de sécurité
+- Commencer par déclarer toutes vos routes sans logique, afin de visualiser votre api globalement
+- Pour chaque route, renvoyez le minimum nécessaire pour formater une réponse correcte avec le code attendu
+- Implémentez pour chaque route la logique attendue
+- Commencez par les routes "faciles" -> Récupération et suppression de tâches
+- Vérifiez systématiquement le bon fonctionnement de vos routes selon les spécifications, que ça soit avec le front ou avec une extension de test type Chrome Talend Api Tester
+- Faites les routes qui ajoutent et modifient la base de données
+- Testez encore
+- Introduisez la validation de payload, testez encore
+- Une fois arrivés là, votre application fonctionne sauf peut-être la page statistiques, faites un peu d'architecture
+- Faites la route pour les statistiques, testez encore
+- Complétez la doc avec un Readme m'expliquant comment installer votre projet sur mon PC, éventuelement listez vos routes dans ce document
+- Regardez si vous pouvez améliorer votre code (respect de la PEP 8 - entre autres pas de camelCase en python -, fonctions avec un nom significatif, idem variables, le code doit être compréhensible en un coup d'oeil)
+- Si vous arrivez ici en ayant respecté tous les points au-dessus, vous avez 20.
