@@ -45,6 +45,8 @@ document.getElementById('update-task-form').addEventListener('submit', function 
   const formData = new FormData(event.target);
   const taskData = Object.fromEntries(formData.entries());
 
+  taskData.priorite = parseInt(taskData.priorite, 10);
+
   fetch(routes.update.replace('{taskId}', taskId), {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },

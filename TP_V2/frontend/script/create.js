@@ -14,6 +14,8 @@ document.getElementById('create-task-form').addEventListener('submit', function 
     }
   }
 
+  taskData.priorite = parseInt(taskData.priorite, 10);
+
   // Envoie une requête POST pour créer une nouvelle tâche
   fetch(routes.create, {
     method: 'POST',
