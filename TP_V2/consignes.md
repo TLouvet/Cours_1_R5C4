@@ -17,6 +17,7 @@ Votre objectif est de développer une API avec Flask qui permette de gérer une 
 - "description": chaîne de caractères
 - "statut" : chaine de caractères, énumération entre TODO, DONE et IN_PROGRESS. Tout autre valeur doit amené un refus par Requête erronnée
 - "priorite": nombre entier
+- "categorie": chaine de caractères
 - "utilisateur": chaîne de caractères
 - "date_creation": chaine de caractères
 
@@ -55,6 +56,7 @@ Pour chaque endpoint, vous devez vous baser sur les définitions fournies dans l
   - "description": chaîne de caractères
   - "statut" : chaine de caractères, énumération entre TODO, DONE et IN_PROGRESS. Tout autre valeur doit amené un refus par Requête erronnée
   - "priorite": nombre entier
+  - "categorie": chaine de caractères
   - "utilisateur": chaîne de caractères
 
 #### d. **Modifier une tâche existante** ()
